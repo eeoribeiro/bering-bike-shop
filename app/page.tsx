@@ -5,9 +5,9 @@ const whatsapp = "https://wa.me/553138177365";
 const wa = (message: string) => `${whatsapp}?text=${encodeURIComponent(message)}`;
 
 const categories = [
-  { number: "01", title: "Bicicletas", text: "Modelos para trilha, cidade, lazer e os primeiros pedais.", image: "/images/bikes.jpg", alt: "Ciclista pedalando uma mountain bike em uma trilha" },
-  { number: "02", title: "Peças & componentes", text: "Tudo para elevar o desempenho e renovar sua bike.", image: "/images/parts.jpg", alt: "Detalhe dos componentes de uma bicicleta" },
-  { number: "03", title: "Acessórios", text: "Segurança, conforto e estilo para cada quilômetro.", image: "/images/accessories.jpg", alt: "Capacete e acessórios para ciclismo" },
+  { number: "01", title: "Bicicletas", text: "Modelos para trilha, cidade, lazer e os primeiros pedais.", image: "/images/bering-fachada.jpg", alt: "Cliente com bicicleta em frente à Bering Bike Shop" },
+  { number: "02", title: "Peças & componentes", text: "Tudo para elevar o desempenho e renovar sua bike.", image: "/images/bering-detalhe-bike.jpg", alt: "Detalhe de uma bicicleta fotografada pela equipe da Bering Bike Shop" },
+  { number: "03", title: "Elétricas & mobilidade", text: "Novas formas de se mover pela cidade com conforto e praticidade.", image: "/images/bering-entrega-eletrica.jpg", alt: "Cliente recebendo bicicleta elétrica em frente à loja" },
 ];
 
 const services = ["Revisão geral", "Regulagem de marchas", "Freios e transmissão", "Pneus e câmaras", "Instalação de acessórios", "Manutenção preventiva"];
@@ -33,7 +33,7 @@ export default function Home() {
 
       <div id="conteudo">
         <section className="hero" id="inicio">
-          <Image className="coverImage" src="/images/hero.jpg" alt="Ciclista em uma trilha cercada por árvores" fill priority sizes="100vw" />
+          <Image className="coverImage" src="/images/bering-pedal.jpg" alt="Pedal real em estrada de terra na região de Ponte Nova" fill priority sizes="100vw" />
           <div className="heroShade" />
           <div className="heroContent"><p className="eyebrow">Ponte Nova • Minas Gerais</p><h1>Seu próximo <span>pedal começa <em>aqui.</em></span></h1><p className="heroText">Bicicletas, peças, acessórios e oficina especializada para quem vive sobre duas rodas.</p><div className="heroActions"><a className="primaryButton" href="#bikes">Conheça a loja <span aria-hidden="true">↗</span></a><a className="textButton" href={wa("Olá! Quero falar com um especialista.")} target="_blank" rel="noreferrer">Falar com especialista →</a></div></div>
           <aside className="heroBadge" aria-label="Bering Bike Shop, desde 2007"><strong>2007</strong><span>o início da nossa história</span></aside>
@@ -43,18 +43,18 @@ export default function Home() {
 
         <section className="catalog section" id="bikes">
           <div className="sectionHead"><div><p className="eyebrow dark">Tudo para pedalar</p><h2>Encontre o que <span>move você.</span></h2></div><div className="sectionIntro"><p>Da primeira bicicleta ao upgrade dos sonhos, nossa equipe ajuda você a escolher cada detalhe.</p><span>Disponibilidade atualizada pelo WhatsApp</span></div></div>
-          <div className="categoryGrid">{categories.map((item) => <article className="categoryCard" key={item.title}><Image className="coverImage" src={item.image} alt={item.alt} fill sizes="(max-width: 900px) 100vw, 33vw" /><div className="cardOverlay"/><span>{item.number}</span><div><h3>{item.title}</h3><p>{item.text}</p><a href={wa(`Olá! Gostaria de consultar ${item.title.toLowerCase()} disponíveis.`)} target="_blank" rel="noreferrer" aria-label={`Consultar ${item.title} disponíveis`}>Consultar disponibilidade ↗</a></div></article>)}</div>
+          <div className="categoryGrid">{categories.map((item) => <article className="categoryCard" key={item.title}><div className="categoryPhoto"><Image className="coverImage" src={item.image} alt={item.alt} fill sizes="(max-width: 900px) 100vw, 33vw" /></div><div className="categoryCopy"><span>{item.number}</span><h3>{item.title}</h3><p>{item.text}</p><a href={wa(`Olá! Gostaria de consultar ${item.title.toLowerCase()} disponíveis.`)} target="_blank" rel="noreferrer" aria-label={`Consultar ${item.title} disponíveis`}>Consultar disponibilidade ↗</a></div></article>)}</div>
           <div className="catalogNote"><div><strong>Não encontrou o que procura?</strong><p>Conte para a equipe qual bike, peça ou acessório você precisa.</p></div><a className="darkButton" href={wa("Olá! Não encontrei o que procuro no site. Podem me ajudar?")} target="_blank" rel="noreferrer">Pedir ajuda no WhatsApp ↗</a></div>
         </section>
 
         <section className="workshop" id="oficina">
-          <div className="workshopImage"><Image className="coverImage" src="/images/workshop.jpg" alt="Mecânico realizando manutenção em uma bicicleta" fill sizes="(max-width: 900px) 100vw, 52vw" /><div className="imageTag"><strong>OFICINA</strong><span>Precisão em cada ajuste</span></div></div>
+          <div className="workshopImage"><Image className="coverImage" src="/images/bering-loja.jpg" alt="Entrada da loja e área de atendimento fotografadas pela Bering Bike Shop" fill sizes="(max-width: 900px) 100vw, 52vw" /></div>
           <div className="workshopContent"><p className="eyebrow">Sua bike em boas mãos</p><h2>Pronta para o <em>próximo pedal.</em></h2><p>Do diagnóstico à revisão completa, cuidamos da sua bicicleta com atenção, experiência e transparência.</p><ul>{services.map((service, index)=><li key={service}><span>{String(index+1).padStart(2,"0")}</span>{service}</li>)}</ul><p className="serviceHint">Não sabe qual serviço precisa? Envie uma foto ou conte o problema para a equipe.</p><a className="primaryButton" href={wa("Olá! Gostaria de agendar uma avaliação ou manutenção para minha bicicleta.")} target="_blank" rel="noreferrer">Agendar avaliação <span aria-hidden="true">↗</span></a></div>
         </section>
 
         <section className="about section" id="sobre"><div className="aboutLead"><p className="eyebrow dark">A Bering Bike Shop</p><h2>Mais que uma loja. <em>Uma vida sobre bikes.</em></h2></div><div className="aboutCopy"><p>Desde 2007, ajudamos ciclistas de Ponte Nova e região a irem mais longe. Com atendimento próximo e orientação especializada, encontramos a solução certa para quem pedala por esporte, lazer ou no dia a dia.</p><div className="stats"><div><strong>Desde 2007</strong><span>experiência local</span></div><div><strong>Loja + oficina</strong><span>solução completa</span></div></div></div></section>
 
-        <section className="instagram"><div className="instaIntro"><span>@beringbikeshop</span><h2>Acompanhe <span>nossos pedais.</span></h2><a href="https://www.instagram.com/beringbikeshop/" target="_blank" rel="noreferrer">Seguir no Instagram ↗</a></div><div className="instaPhoto"><Image className="coverImage" src="/images/insta-one.jpg" alt="Ciclista percorrendo uma trilha na floresta" fill sizes="(max-width: 900px) 50vw, 33vw" /></div><div className="instaPhoto"><Image className="coverImage" src="/images/insta-two.jpg" alt="Ciclista de mountain bike em meio à natureza" fill sizes="(max-width: 520px) 100vw, 33vw" /></div></section>
+        <section className="instagram"><div className="instaIntro"><span>@beringbikeshop</span><h2>Acompanhe <span>nossos pedais.</span></h2><a href="https://www.instagram.com/beringbikeshop/" target="_blank" rel="noreferrer">Seguir no Instagram ↗</a></div><div className="instaPhoto"><Image className="coverImage" src="/images/bering-ciclista.jpg" alt="Ciclista e integrante da equipe em frente à loja" fill sizes="(max-width: 900px) 50vw, 33vw" /></div><div className="instaPhoto"><Image className="coverImage" src="/images/bering-cliente.jpg" alt="Cliente com a família recebendo uma bicicleta na loja" fill sizes="(max-width: 520px) 100vw, 33vw" /></div></section>
 
         <section className="faq section" id="faq"><div className="faqIntro"><p className="eyebrow dark">Dúvidas frequentes</p><h2>Antes do próximo <em>pedal.</em></h2><p>Respostas rápidas para facilitar seu contato com a loja e a oficina.</p></div><div className="faqList">{faqs.map(([question, answer])=><details key={question}><summary>{question}<span aria-hidden="true">+</span></summary><p>{answer}</p></details>)}</div></section>
 
